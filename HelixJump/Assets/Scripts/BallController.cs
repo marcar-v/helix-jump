@@ -9,9 +9,15 @@ public class BallController : MonoBehaviour
     bool _ignoreNextCollision;
     float _delay = 0.2f;
 
+    private Vector3 _startPosition;
     void Awake()
     {
         _rigigbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        _startPosition = transform.position;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,16 +25,33 @@ public class BallController : MonoBehaviour
         {
             return;
         }
+
         _rigigbody.velocity = Vector3.zero;
         _rigigbody.AddForce(Vector3.up * _force, ForceMode.Impulse);
 
         _ignoreNextCollision = true;
 
         Invoke("AllowNextCollision", _delay);
+
+        DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
+        if(deathPart)
+        {
+            GameManager._gameManagerInstance.RestartLevel();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager._gameManagerInstance.AddScore(1);
     }
 
     void AllowNextCollision()
     {
         _ignoreNextCollision = false;
+    }
+
+    public void ResetBall()
+    {
+        transform.position = _startPosition;
     }
 }
