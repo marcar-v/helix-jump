@@ -871,6 +871,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00a763e31305eb4d8f382043e1b44e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topTransform: {fileID: 0}
+  bottomTransform: {fileID: 0}
+  helixPartPrefab: {fileID: 0}
+  allStages: []
+  helixDistance: 0
 --- !u!1001 &1403366464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -937,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 4880567181320998883, guid: 54b2f214d2dff524c92b4fede871f88c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
