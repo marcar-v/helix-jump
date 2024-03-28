@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2580513790358128935}
   - component: {fileID: 4956216327467788474}
   m_Layer: 0
-  m_Name: HelixTop
+  m_Name: HelixPlatformPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 1419940011841542111, guid: c4c5635a125e6b949b42a0608ad53bc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8765564562656694043, guid: c4c5635a125e6b949b42a0608ad53bc3,
         type: 3}
