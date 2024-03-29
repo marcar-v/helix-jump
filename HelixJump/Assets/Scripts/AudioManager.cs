@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioSource _buttonSound;
+    [SerializeField] AudioSource _bounceSound;
 
     public static AudioManager _audioManagerInstance;
     // Start is called before the first frame update
@@ -18,9 +19,16 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
     public void ButtonSound()
     {
         _buttonSound.Play();
+    }
+
+    public void BounceSound()
+    {
+        _bounceSound.Play();
     }
 }

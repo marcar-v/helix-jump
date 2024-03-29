@@ -28,6 +28,7 @@ public class BallController : MonoBehaviour
 
         _rigigbody.velocity = Vector3.zero;
         _rigigbody.AddForce(Vector3.up * _force, ForceMode.Impulse);
+        AudioManager._audioManagerInstance.BounceSound();
 
         _ignoreNextCollision = true;
 
