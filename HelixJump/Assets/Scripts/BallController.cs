@@ -28,7 +28,6 @@ public class BallController : MonoBehaviour
 
         _rigigbody.velocity = Vector3.zero;
         _rigigbody.AddForce(Vector3.up * _force, ForceMode.Impulse);
-        AudioManager._audioManagerInstance.BounceSound();
 
         _ignoreNextCollision = true;
 
@@ -37,8 +36,11 @@ public class BallController : MonoBehaviour
         DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
         if(deathPart)
         {
+            Debug.Log("Death part");
             GameManager._gameManagerInstance.RestartLevel();
         }
+
+        AudioManager._audioManagerInstance.BounceSound();
     }
 
     private void OnTriggerEnter(Collider other)

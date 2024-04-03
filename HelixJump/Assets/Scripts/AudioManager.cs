@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource _bounceSound;
 
     public static AudioManager _audioManagerInstance;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if(_audioManagerInstance == null)
