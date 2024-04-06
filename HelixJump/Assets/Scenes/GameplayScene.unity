@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18346147, g: 0.22903861, b: 0.3058671, a: 1}
+  m_IndirectSpecularColor: {r: 0.18346176, g: 0.22903882, b: 0.3058677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.34
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -998,6 +998,12 @@ MonoBehaviour:
   _bestScore: 0
   _score: 0
   currentLevel: 0
+  _slider: {fileID: 75306781}
+  _actualLevelText: {fileID: 921261071}
+  _nextLevelText: {fileID: 237459580}
+  _topTransform: {fileID: 1902698218}
+  _bottomTransform: {fileID: 8953892149299948688}
+  _ballTransform: {fileID: 1553916084}
 --- !u!4 &930192684
 Transform:
   m_ObjectHideFlags: 0
@@ -2058,6 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _force: 4
   _superSpeed: 10
+  _splash: {fileID: 6196485915055338584, guid: 8c2a2e1b81925494284fa503b2634b48, type: 3}
 --- !u!1 &1867135323
 GameObject:
   m_ObjectHideFlags: 0

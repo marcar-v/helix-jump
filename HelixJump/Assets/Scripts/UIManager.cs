@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     public void PlayButton()
     {
         SceneManager.LoadScene(1);

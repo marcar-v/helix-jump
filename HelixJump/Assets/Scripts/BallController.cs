@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -17,6 +18,11 @@ public class BallController : MonoBehaviour
     [SerializeField] float _superSpeed;
     bool _isSuperSpeedActive;
     int _perfectPassCount = 3;
+
+    [SerializeField] GameObject _splash;
+    SpriteRenderer _splashRenderer;
+    Stage _stage;
+
 
     void Awake()
     {
@@ -59,6 +65,7 @@ public class BallController : MonoBehaviour
         _perfectPass = 0;
         _isSuperSpeedActive = false;
 
+        AddSplash(collision);
         AudioManager._audioManagerInstance.BounceSound();
     }
 
@@ -86,5 +93,19 @@ public class BallController : MonoBehaviour
     public void ResetBall()
     {
         transform.position = _startPosition;
+    }
+
+    public void AddSplash(Collision collision)
+    {
+
+        GameObject _newSplash;
+        _newSplash = Instantiate(_splash);
+        _splashRenderer = _newSplash.GetComponent<SpriteRenderer>();
+
+        _newSplash.transform.SetParent(collision.transform);
+        _newSplash.transform.position = new Vector3(transform.position.x, transform.position.y - 0.11f, transform.position.z);
+        _splashRenderer.color = _stage.stageBallColor;
+
+        Destroy(_newSplash, 3f);
     }
 }
