@@ -20,8 +20,6 @@ public class BallController : MonoBehaviour
     int _perfectPassCount = 3;
 
     [SerializeField] GameObject _splash;
-    SpriteRenderer _splashRenderer;
-    Stage _stage;
 
 
     void Awake()
@@ -97,15 +95,13 @@ public class BallController : MonoBehaviour
 
     public void AddSplash(Collision collision)
     {
-
+        
         GameObject _newSplash;
         _newSplash = Instantiate(_splash);
-        _splashRenderer = _newSplash.GetComponent<SpriteRenderer>();
 
         _newSplash.transform.SetParent(collision.transform);
         _newSplash.transform.position = new Vector3(transform.position.x, transform.position.y - 0.11f, transform.position.z);
-        _splashRenderer.color = _stage.stageBallColor;
 
-        Destroy(_newSplash, 3f);
+        Destroy(_newSplash, 0.5f);
     }
 }

@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static System.TimeZoneInfo;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] TransitionController _transitionController;
+
     public void PlayButton()
     {
-        SceneManager.LoadScene(1);
+        _transitionController.LoadNextScene();
     }
 
     public void QuitButton()
