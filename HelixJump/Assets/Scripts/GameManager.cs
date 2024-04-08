@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int _score;
     public int score { get { return _score; } set { _score = value; } }
 
-    [SerializeField] int currentLevel = 0;
+    [SerializeField] int _currentLevel = 0;
+    public int currentLevel { get { return _currentLevel; } set { _currentLevel = value; } }
     
     [SerializeField] AudioSource _levelCompletedSound;
 

@@ -9,7 +9,6 @@ public class SliderController : MonoBehaviour
     [SerializeField] Transform _topTransform;
     [SerializeField] Transform _bottomTransform;
     [SerializeField] Transform _ballTransform;
-    [SerializeField] int currentLevel = 0;
     [SerializeField] Slider _slider;
     [SerializeField] TextMeshProUGUI _actualLevelText;
     [SerializeField] TextMeshProUGUI _nextLevelText;
@@ -20,8 +19,8 @@ public class SliderController : MonoBehaviour
     }
     public void SliderProgress()
     {
-        _actualLevelText.text = "" + (currentLevel + 1);
-        _nextLevelText.text = "" + (currentLevel + 2);
+        _actualLevelText.text = "" + (GameManager._gameManagerInstance.currentLevel + 1);
+        _nextLevelText.text = "" + (GameManager._gameManagerInstance.currentLevel + 2);
 
         float _totalDistance = (_topTransform.position.y - _bottomTransform.position.y);
         float _distanceLeft = _totalDistance - (_ballTransform.position.y - _bottomTransform.position.y);

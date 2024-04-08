@@ -366,7 +366,6 @@ MonoBehaviour:
   _topTransform: {fileID: 1902698218}
   _bottomTransform: {fileID: 8953892149299948688}
   _ballTransform: {fileID: 1553916084}
-  currentLevel: 0
   _slider: {fileID: 75306781}
   _actualLevelText: {fileID: 921261071}
   _nextLevelText: {fileID: 237459580}
@@ -1018,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bestScore: 0
   _score: 0
-  currentLevel: 0
+  _currentLevel: 0
   _levelCompletedSound: {fileID: 930192685}
 --- !u!4 &930192684
 Transform:
@@ -1047,7 +1046,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: df66e1836cdddf74a809fbdf76b28a7e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1898,6 +1897,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78cabc8a34d6f6c4698965c85a81cbcd, type: 2}
   - {fileID: 11400000, guid: 43ea37af8488a5e4b9f68bf561e10101, type: 2}
   - {fileID: 11400000, guid: 9cb8c9f5a120b3b40956607499fd7e58, type: 2}
+  - {fileID: 11400000, guid: 89ddd410ef6604c4884e80793795db33, type: 2}
+  - {fileID: 11400000, guid: 8a571780e3d71ef458f8d092b4eddb0b, type: 2}
   helixDistance: 0
 --- !u!1 &1487256938
 GameObject:
