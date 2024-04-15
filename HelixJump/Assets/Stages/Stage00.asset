@@ -26,17 +26,3 @@ MonoBehaviour:
     _deathPartCount: 2
   - _partCount: 10
     _deathPartCount: 1
-  - _partCount: 11
-    _deathPartCount: 0
-  - _partCount: 10
-    _deathPartCount: 1
-  - _partCount: 8
-    _deathPartCount: 3
-  - _partCount: 7
-    _deathPartCount: 2
-  - _partCount: 10
-    _deathPartCount: 1
-  - _partCount: 9
-    _deathPartCount: 1
-  - _partCount: 9
-    _deathPartCount: 4

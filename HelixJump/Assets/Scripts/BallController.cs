@@ -20,6 +20,7 @@ public class BallController : MonoBehaviour
     int _perfectPassCount = 3;
 
     [SerializeField] GameObject _splash;
+    [SerializeField] Animator _splashAnim;
 
 
     void Awake()
@@ -101,7 +102,7 @@ public class BallController : MonoBehaviour
 
         _newSplash.transform.SetParent(collision.transform);
         _newSplash.transform.position = new Vector3(transform.position.x, transform.position.y - 0.11f, transform.position.z);
-
+        
         Destroy(_newSplash, 0.5f);
     }
 }

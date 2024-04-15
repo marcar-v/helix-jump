@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HelixController : MonoBehaviour
 {
     private Vector2 _lastTapPosition;
     private Vector3 _startRotation;
 
-    [SerializeField] Transform topTransform;
-    [SerializeField] Transform goalTransform;
-
     [SerializeField] GameObject helixPlatformPrefab;
+    public Vector3 startRotation {  get { return _startRotation; } set {  _startRotation = value; } }
 
-    [SerializeField] List<Stage> allStages = new List<Stage>();
+    [SerializeField] Transform _topTransform;
+    public Transform topTransform { get { return _topTransform; } set { _topTransform = value; } }
 
-    [SerializeField] float helixDistance;
+    [SerializeField] Transform _goalTransform;
+    public Transform goalTransform { get { return _goalTransform; } set { _goalTransform = value; } }
+    
+    float _helixDistance;
+    public float helixDistance {  get { return _helixDistance; } set { _helixDistance = value; } }
 
     private List<GameObject> spawnedLevels = new List<GameObject>();
-
+    [SerializeField] List<Stage> allStages = new List<Stage>();
 
     private void Awake()
     {
@@ -54,9 +58,9 @@ public class HelixController : MonoBehaviour
     {
         Stage stage = allStages[Mathf.Clamp(stageNumber, 0, allStages.Count - 1)];
 
-        if(stage == null)
+        if (stage == null)
         {
-            Debug.Log("No más niveles");
+            Debug.Log("No más escenas");
             return;
         }
 
@@ -64,9 +68,9 @@ public class HelixController : MonoBehaviour
 
         FindObjectOfType<BallController>().GetComponent<Renderer>().material.color = allStages[stageNumber].stageBallColor;
 
-        transform.localEulerAngles = _startRotation;
+        transform.localEulerAngles = startRotation;
 
-        foreach(GameObject go in spawnedLevels)
+        foreach (GameObject go in spawnedLevels)
         {
             Destroy(go);
         }
@@ -74,14 +78,14 @@ public class HelixController : MonoBehaviour
         float levelDistance = helixDistance / stage.levels.Count;
         float spawnPositionY = topTransform.localPosition.y;
 
-        for(int i = 0; i < stage.levels.Count; i++)
+        for (int i = 0; i < stage.levels.Count; i++)
         {
             spawnPositionY -= levelDistance;
 
             GameObject level = Instantiate(helixPlatformPrefab, transform);
 
             level.transform.localPosition = new Vector3(0, spawnPositionY, 0);
-            
+
             spawnedLevels.Add(level);
 
             int _partsToDisable = 12 - stage.levels[i].partCount;
@@ -101,7 +105,7 @@ public class HelixController : MonoBehaviour
             foreach (Transform t in level.transform)
             {
                 t.GetComponent<Renderer>().material.color = allStages[stageNumber].stageLevelPartColor;
-                if(t.gameObject.activeInHierarchy)
+                if (t.gameObject.activeInHierarchy)
                 {
                     leftParts.Add(t.gameObject);
                 }
@@ -112,7 +116,7 @@ public class HelixController : MonoBehaviour
             {
                 GameObject randomDeathParts = leftParts[(Random.Range(0, leftParts.Count))].gameObject;
 
-                if(!deathParts.Contains(randomDeathParts))
+                if (!deathParts.Contains(randomDeathParts))
                 {
                     randomDeathParts.gameObject.AddComponent<DeathPart>();
                     deathParts.Add(randomDeathParts);
