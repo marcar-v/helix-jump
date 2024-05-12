@@ -124,4 +124,9 @@ public class HelixController : MonoBehaviour
             }
         }
     }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

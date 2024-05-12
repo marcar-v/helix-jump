@@ -7,15 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _gameManagerInstance;
 
-    [SerializeField] int _bestScore;
+    private int _bestScore;
     public int bestScore {  get { return _bestScore; } set {  _bestScore = value; } }
-    [SerializeField] int _score;
+
+    private  int _score;
     public int score { get { return _score; } set { _score = value; } }
 
-    [SerializeField] int _currentLevel = 0;
+    private int _currentLevel = 0;
     public int currentLevel { get { return _currentLevel; } set { _currentLevel = value; } }
     
     [SerializeField] AudioSource _levelCompletedSound;
+
+    [Header("GameOver Settings")]
+    [SerializeField] GameObject _gameOverCanvas;
 
     void Awake()
     {
@@ -40,12 +44,13 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<HelixController>().LoadStage(currentLevel);
     }
 
-    public void RestartLevel()
+    public void GameOver()
     {
-        _gameManagerInstance.score = 0;
-        FindObjectOfType<BallController>().ResetBall();
-        FindObjectOfType<HelixController>().LoadStage(currentLevel);
-
+        score = 0;
+        Time.timeScale = 0;
+        _gameOverCanvas.SetActive(true);
+        //FindObjectOfType<HelixController>().LoadStage(currentLevel);
+        //FindObjectOfType<BallController>().ResetBall();
     }
 
     public void AddScore(int scoreToAdd)

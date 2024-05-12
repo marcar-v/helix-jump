@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public static BallController _ballControllerInstance;
+
     [Header("Collisions")]
     Rigidbody _rigigbody;
     [SerializeField] float _force = 3f;
@@ -21,7 +24,6 @@ public class BallController : MonoBehaviour
 
     [SerializeField] GameObject _splash;
     [SerializeField] Animator _splashAnim;
-
 
     void Awake()
     {
@@ -49,8 +51,7 @@ public class BallController : MonoBehaviour
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
             {
-                Debug.Log("Death part");
-                GameManager._gameManagerInstance.RestartLevel();
+                GameManager._gameManagerInstance.GameOver();
             }
         }
 

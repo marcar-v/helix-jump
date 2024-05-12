@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        currentScoreText.text = "" + GameManager._gameManagerInstance.score;
-        bestscoreText.text = "" + GameManager._gameManagerInstance.bestScore;
+        currentScoreText.text = "00000" + GameManager._gameManagerInstance.score;
+        bestscoreText.text = "0000" + GameManager._gameManagerInstance.bestScore;
     }
 }
 
